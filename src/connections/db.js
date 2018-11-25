@@ -2,13 +2,14 @@ const Sequelize = require('sequelize')
 
 const name = process.env.NAME_DB || 'ExampleDB'
 const user = process.env.USER_DB || 'root'
-const pass = process.env.PASS_DB || 'example'
+const pass = process.env.PASS_DB || 'toor'
 const host = process.env.HOST_DB || 'localhost'
+const type = process.env.TYPE_DB || 'mysql'
 const port = process.env.PORT_DB || 3306
 
 const sequelize = new Sequelize(name, user, pass, {
   host: host,
-  dialect: 'mysql',
+  dialect: type,
   port: port,
   logging: console.log,
   operatorsAliases: false,
