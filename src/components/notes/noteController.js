@@ -30,7 +30,6 @@ router.route('/note')
     console.log(req.path);
     console.log(req.ip);
     
-
     let obj = {
       offset: Number(req.query.offset ? req.query.offset : 0),
       limit: Number(req.query.limit ? req.query.limit : 10),
