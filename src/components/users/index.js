@@ -1,3 +1,4 @@
 module.exports = {
-  routers: require('./userController')
+  routers: require('./userController'),
+  model: require('./user')
 };

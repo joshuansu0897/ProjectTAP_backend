@@ -6,7 +6,7 @@ const User = connection.db.define('user', {
   password: { type: Sequelize.STRING, allowNull: false }
 })
 
-User.hasMany(require('../Notes/note'), { as: 'note' })
+User.hasMany(require('../notes').model, { as: 'note' })
 
 connection.db.sync()
 

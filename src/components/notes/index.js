@@ -1,3 +1,4 @@
 module.exports = {
-  routers: require('./noteController')
+  routers: require('./noteController'),
+  model: require('./note')
 };
