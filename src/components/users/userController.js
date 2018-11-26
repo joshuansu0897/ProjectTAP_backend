@@ -29,6 +29,18 @@ router.post('/signup', async (req, res) => {
   let username = req.body.username
   let password = req.body.password
 
+  if (!username) {
+    res.status(400)
+    res.json({ error: { msg: 'Invalid username' } })
+    return
+  }
+
+  if (!password) {
+    res.status(400)
+    res.json({ error: { msg: 'Invalid username' } })
+    return
+  }
+
   let response = await UserDAL.findByUsername(username)
 
   if (response) {
