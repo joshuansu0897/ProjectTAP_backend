@@ -6,6 +6,9 @@ jobs:
   steps:
     - setup_remote_docker
     - checkout
+    - add_ssh_keys:
+        fingerprints: 
+          - "$FINGERPRINTS"  
     - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
     - restore_cache:
         keys:
@@ -30,4 +33,9 @@ jobs:
         key: v1-{{ .Branch }}-{{ epoch }}
         paths:
           - /caches/container.tar
-    - run: docker push $DOCKER_USER/$IMAGE_NAME
+    - run: 
+        name: Push to DockerHub
+        command: docker push $DOCKER_USER/$IMAGE_NAME
+    - run:
+        name: Deploy to Production Server
+        command: ./server/deploy.sh
