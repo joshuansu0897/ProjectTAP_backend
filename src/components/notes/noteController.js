@@ -125,7 +125,7 @@ router.route('/note/:id')
       return
     }
 
-    res.json({ msg: 'delete successful ' })
+    res.json({ msg: 'deleted successfully' })
   })
 
 module.exports = router;

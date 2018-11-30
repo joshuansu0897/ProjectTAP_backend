@@ -20,28 +20,47 @@ exports.findAll = async (obj) => {
 
 exports.save = async (note) => {
   let response
-  if (note.id) {
-    response = await Note.update(note, { where: { id: note.id } })
-    console.log(response);
-  } else {
-    response = await Note.create(note)
+
+  try {
+    if (note.id) {
+      response = await Note.update(note, { where: { id: note.id } })
+      response = await this.findById({ id: note.id, userId: note.userId })
+    } else {
+      response = await Note.create(note)
+      response = response ? response.dataValues : null
+    }
+  } catch (error) {
+    console.log(error)
   }
 
-  return response ? response.dataValues : null
+  return response
 }
 
 exports.delete = async (obj) => {
   const id = obj.id
   const userId = obj.userId
 
-  let response = await Note.destroy({ where: { id, userId } })
-  return response ? response.dataValues : null
+  let response
+  try {
+    response = await Note.destroy({ where: { id, userId } })
+  } catch (error) {
+    console.log(error)
+  }
+
+  return response
 }
 
 exports.findById = async (obj) => {
   const id = obj.id
   const userId = obj.userId
 
-  let response = await Note.findOne({ where: { id, userId } })
-  return response ? response.dataValues : null
+  let response
+  try {
+    response = await Note.findOne({ where: { id, userId } })
+    response = response ? response.dataValues : null
+  } catch (error) {
+    console.log(error)
+  }
+
+  return response
 }
