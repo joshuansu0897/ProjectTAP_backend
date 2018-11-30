@@ -37,7 +37,7 @@ router.post('/signup', async (req, res) => {
 
   if (!password) {
     res.status(400)
-    res.json({ error: { msg: 'Invalid username' } })
+    res.json({ error: { msg: 'Invalid password' } })
     return
   }
 
