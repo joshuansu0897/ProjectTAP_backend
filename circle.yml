@@ -37,7 +37,6 @@ jobs:
     - run: 
         name: Push to DockerHub
         command: docker push $DOCKER_USER/$IMAGE_NAME
-    - run: echo '$IP_SERVER ecdsa-sha2-nistp256 SHA256:S7PUsC1OF74DjRhBpeo+kntASgUOkqssBUhETdIjKgs' >> ~/.ssh/known_hosts
     - run:
         name: Deploy to Production Server
         command: sh server/deploy.sh
