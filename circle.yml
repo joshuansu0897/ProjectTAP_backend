@@ -9,7 +9,7 @@ jobs:
     - checkout
     - add_ssh_keys:
         fingerprints: 
-          - "62:fa:42:99:01:98:e0:f1:1d:8d:6e:a5:4f:80:b4:2e"  
+          - "$FINGERPRINTS"  
     - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
     - restore_cache:
         keys:
@@ -37,6 +37,7 @@ jobs:
     - run: 
         name: Push to DockerHub
         command: docker push $DOCKER_USER/$IMAGE_NAME
+    - run: echo '$IP_SERVER ecdsa-sha2-nistp256 SHA256:S7PUsC1OF74DjRhBpeo+kntASgUOkqssBUhETdIjKgs' >> ~/.ssh/known_hosts
     - run:
         name: Deploy to Production Server
         command: sh server/deploy.sh
