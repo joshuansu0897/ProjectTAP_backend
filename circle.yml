@@ -38,4 +38,4 @@ jobs:
         command: docker push $DOCKER_USER/$IMAGE_NAME
     - run:
         name: Deploy to Production Server
-        command: server/deploy.sh
+        command: ~/ProjectTAP_backend/server/deploy.sh
