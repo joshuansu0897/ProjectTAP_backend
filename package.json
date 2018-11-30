@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www",
     "prod": "pm2 start ./bin/www"
@@ -21,9 +21,7 @@
     "sequelize": "^4.41.2"
   },
   "devDependencies": {
-    "jest": "^23.6.0",
-    "nodemon": "^1.18.6",
-    "supertest": "^3.3.0"
+    "nodemon": "^1.18.6"
   },
   "optionalDependencies": {
     "pm2": "^3.2.2"
