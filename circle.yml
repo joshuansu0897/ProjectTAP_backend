@@ -9,7 +9,7 @@ jobs:
     - checkout
     - add_ssh_keys:
         fingerprints: 
-          - "$FINGERPRINTS"  
+          - "62:fa:42:99:01:98:e0:f1:1d:8d:6e:a5:4f:80:b4:2e"  
     - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
     - restore_cache:
         keys:
