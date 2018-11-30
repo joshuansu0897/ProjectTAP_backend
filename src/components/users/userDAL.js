@@ -1,11 +1,29 @@
 const User = require('./user')
 
 exports.findByUsername = async (username) => {
-  let response = await User.findOne({ where: { username } })
+
+  let response
+  try {
+    response = await User.findOne({ where: { username } })
+    response = response ? response.dataValues : null
+  } catch (error) {
+    response = {}
+    response.error = error.message
+  }
+
   return response ? response.dataValues : null
 }
 
 exports.save = async (user) => {
-  let response = await User.create(user)
-  return response.dataValues
+
+  let response
+  try {
+    response = await User.create(user)
+    response = response ? response.dataValues : null
+  } catch (error) {
+    response = {}
+    response.error = error.message
+  }
+
+  return response
 }

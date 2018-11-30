@@ -53,6 +53,12 @@ router.post('/signup', async (req, res) => {
 
   response = await UserDAL.save({ username, password: passwordCrypt })
 
+  if (response.error) {
+    res.status(500)
+    res.json({ error: { msg: response.error } })
+    return
+  }
+
   res.json({ msg: 'created successfully' })
 })
 

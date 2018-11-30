@@ -30,7 +30,8 @@ exports.save = async (note) => {
       response = response ? response.dataValues : null
     }
   } catch (error) {
-    console.log(error)
+    response = {}
+    response.error = error.message
   }
 
   return response
@@ -44,7 +45,8 @@ exports.delete = async (obj) => {
   try {
     response = await Note.destroy({ where: { id, userId } })
   } catch (error) {
-    console.log(error)
+    response = {}
+    response.error = error.message
   }
 
   return response
@@ -59,7 +61,8 @@ exports.findById = async (obj) => {
     response = await Note.findOne({ where: { id, userId } })
     response = response ? response.dataValues : null
   } catch (error) {
-    console.log(error)
+    response = {}
+    response.error = error.message
   }
 
   return response
