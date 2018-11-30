@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
 
   if (!token) {
     res.status(401)
-    res.json({ error: { msg: 'No token! :B' } })
+    res.json({ error: { msg: 'No token!' } })
     return
   }
 
