@@ -14,11 +14,11 @@ router.route('/note')
 
     if (response.error) {
       res.status(500)
-      res.json({ error: { msg: response.error } })
+      res.json({ error: response.error })
       return
     }
 
-    res.json({ response })
+    res.json(response)
   })
   .get(async (req, res) => {
 
@@ -32,7 +32,7 @@ router.route('/note')
 
     if (!response) {
       res.status(500)
-      res.json({ error: { msg: 'error al buscar las notas' } })
+      res.json({ error: 'error al buscar las notas' })
       return
     }
 
@@ -57,11 +57,11 @@ router.route('/note/:id')
 
     if (response.error) {
       res.status(500)
-      res.json({ error: { msg: response.error } })
+      res.json({ error: response.error })
       return
     }
 
-    res.json({ response })
+    res.json(response)
   })
   .put(async (req, res) => {
 
@@ -76,11 +76,11 @@ router.route('/note/:id')
 
     if (response.error) {
       res.status(500)
-      res.json({ error: { msg: response.error } })
+      res.json({ error: response.error })
       return
     }
 
-    res.json({ response })
+    res.json(response)
   })
   .delete(async (req, res) => {
 
@@ -93,7 +93,7 @@ router.route('/note/:id')
 
     if (response.error) {
       res.status(500)
-      res.json({ error: { msg: response.error } })
+      res.json({ error: response.error })
       return
     }
 

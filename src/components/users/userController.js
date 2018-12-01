@@ -8,7 +8,7 @@ router.post('/signin', async (req, res) => {
 
   if (!response) {
     res.status(404)
-    res.json({ error: { msg: 'Invalid username' } })
+    res.json({ error: 'Invalid username' })
     return
   }
 
@@ -16,7 +16,7 @@ router.post('/signin', async (req, res) => {
 
   if (!validPassword) {
     res.status(404)
-    res.json({ error: { msg: 'Invalid password' } })
+    res.json({ error: 'Invalid password' })
     return
   }
 
@@ -31,13 +31,13 @@ router.post('/signup', async (req, res) => {
 
   if (!username) {
     res.status(400)
-    res.json({ error: { msg: 'Invalid username' } })
+    res.json({ error: 'Invalid username' })
     return
   }
 
   if (!password) {
     res.status(400)
-    res.json({ error: { msg: 'Invalid password' } })
+    res.json({ error: 'Invalid password' })
     return
   }
 
@@ -45,7 +45,7 @@ router.post('/signup', async (req, res) => {
 
   if (response) {
     res.status(409)
-    res.json({ error: { msg: 'username was already taken' } })
+    res.json({ error: 'username was already taken' })
     return
   }
 
@@ -55,7 +55,7 @@ router.post('/signup', async (req, res) => {
 
   if (response.error) {
     res.status(500)
-    res.json({ error: { msg: response.error } })
+    res.json({ error: response.error })
     return
   }
 
