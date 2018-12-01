@@ -11,7 +11,7 @@ exports.findByUsername = async (username) => {
     response.error = error.message
   }
 
-  return response ? response.dataValues : null
+  return response
 }
 
 exports.save = async (user) => {
