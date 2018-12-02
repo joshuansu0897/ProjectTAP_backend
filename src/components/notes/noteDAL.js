@@ -8,7 +8,7 @@ exports.findAll = async (obj) => {
   let response = await Note.findAll({
     offset,
     limit,
-    attributes: ['id', 'title'],
+    attributes: ['id', 'title', 'updatedAt'],
     where: { userId }
   })
   response = response.map(res => res.dataValues)
