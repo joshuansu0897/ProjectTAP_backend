@@ -37,7 +37,7 @@ jobs:
     - run: 
         name: Push to DockerHub
         command: docker push $DOCKER_USER/$IMAGE_NAME
-    - run: echo $KNOW_HOSTS >> ~/.ssh/known_hosts
-    - run:
-        name: Deploy to Production Server
-        command: sh server/deploy.sh
+    # - run: echo $KNOW_HOSTS >> ~/.ssh/known_hosts
+    # - run:
+    #     name: Deploy to Production Server
+    #     command: sh server/deploy.sh
