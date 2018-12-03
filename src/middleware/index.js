@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
 
   if (!token) {
     res.status(401)
-    res.json({ error: { msg: 'No token!' } })
+    res.json({ error: 'No token!' })
     return
   }
 
@@ -19,6 +19,6 @@ module.exports = (req, res, next) => {
     next()
   } catch (error) {
     res.status(401)
-    res.json({ error: { msg: 'Failed to authenticate token!' } })
+    res.json({ error: 'Failed to authenticate token!' })
   }
 };
