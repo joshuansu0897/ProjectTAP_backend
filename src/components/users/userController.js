@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const UserDAL = require('./userDAL')
-const bcrypt = require('bcrypt-nodejs')
+const bcrypt = require('bcrypt')
 const { jwt, secret } = require('../../middleware/lib')
 
 router.post('/signin', async (req, res) => {
@@ -49,7 +49,7 @@ router.post('/signup', async (req, res) => {
     return
   }
 
-  let passwordCrypt = bcrypt.hashSync(password)
+  let passwordCrypt = bcrypt.hashSync(password, 2)
 
   response = await UserDAL.save({ username, password: passwordCrypt })
 

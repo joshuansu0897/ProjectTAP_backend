@@ -12,7 +12,6 @@ const sequelize = new Sequelize(name, user, pass, {
   dialect: type,
   port: port,
   logging: console.log,
-  operatorsAliases: false,
 
   pool: {
     max: 5,
